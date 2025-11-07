@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Extend Jenkins PATH so it can find Homebrew-installed binaries
-        PATH+EXTRA = "/usr/local/bin:/opt/homebrew/bin"
+        // Append to PATH correctly
+        PATH = "$PATH:/usr/local/bin:/opt/homebrew/bin"
     }
 
     triggers {
