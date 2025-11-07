@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video List</title>
+</head>
+<body>
+    <h1>Video List</h1>
+
+    <ul>
+        {% for video in videos %}
+            <li>
+                {{ video.MovieTitle }} 
+                - <a href="{% url 'edit_video' video.MovieID %}">Edit</a>
+                - <a href="{% url 'delete_video' video.MovieID %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No videos yet!</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_video' %}">Add new video</a>
+</body>
+</html>

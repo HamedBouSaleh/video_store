@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    build: ./video_store12.py
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./video_store12.py:/app
+    environment:
+      - PYTHONUNBUFFERED=1
