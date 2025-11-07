@@ -1,4 +1,4 @@
-ppipeline {
+pipeline {
     agent any
     environment {
         PATH = "/usr/local/bin:/opt/homebrew/bin:${env.PATH}"
