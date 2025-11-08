@@ -12,17 +12,19 @@ pipeline {
         stage('Build in Minikube Docker') {
             steps {
                 sh '''
-                eval $(minikube docker-env)
-                docker build -t videostoreapp:latest .
+                #!/bin/bash
+                eval $(/opt/homebrew/bin/minikube docker-env)
+                /usr/local/bin/docker build -t videostoreapp:latest .
                 '''
             }
         }
         stage('Deploy to Minikube') {
             steps {
                 sh '''
-                kubectl apply -f deployment.yaml
-                kubectl apply -f service.yaml
-                kubectl rollout status deployment/django-deployment
+                #!/bin/bash
+                /opt/homebrew/bin/kubectl apply -f deployment.yaml
+                /opt/homebrew/bin/kubectl apply -f service.yaml
+                /opt/homebrew/bin/kubectl rollout status deployment/django-deployment
                 '''
             }
         }
